@@ -5,11 +5,9 @@ const StoriesView = {
   pageSize: 10,
 
   async render(container) {
-
-    const storyId = params.get('id');
     const token = localStorage.getItem('token');
 
-    if (!token || !storyId) {
+    if (!token) {
       container.innerHTML = '<p style="color:red;">Data tidak lengkap. Silakan login dan pilih cerita.</p>';
       return;
     }
