@@ -2,6 +2,7 @@ import UploadPresenter from '../presenters/UploadPresenter.js';
 
 const UploadView = {
   async render(container) {
+
     const token = localStorage.getItem('token');
     if (!token) {
       container.innerHTML = `
