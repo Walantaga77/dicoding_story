@@ -2,15 +2,15 @@
 const CACHE_NAME = 'dicoding-story-cache-v1';
 const STATIC_ASSETS = [
     '/',
-    '../index.html',
+    '/index.html',
     '/style.css',
-    './src/app.js',
     '/manifest.webmanifest',
-    './icons/icon-192x192.jpg',
+    '/icons/icon-192x192.jpg',
     'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
     'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
     'https://fonts.googleapis.com/css2?family=Poppins&display=swap'
 ];
+
 
 // Install event - cache App Shell
 self.addEventListener('install', event => {
