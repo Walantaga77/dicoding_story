@@ -56,7 +56,7 @@
   <!-- Register Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register('/public/sw.js')
         .then(reg => {
           console.log('✅ Service Worker registered:', reg.scope);
         })
