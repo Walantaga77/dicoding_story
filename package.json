@@ -1,0 +1,26 @@
+{
+  "name": "dicoding-story-app",
+  "version": "1.0.0",
+  "description": "A SPA MVP app using Dicoding Story API with login, register, upload, and map features.",
+  "scripts": {
+    "start": "lite-server --baseDir=public"
+  },
+  "keywords": [
+    "dicoding",
+    "story",
+    "spa",
+    "mvp",
+    "leaflet",
+    "login",
+    "register"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "idb": "^8.0.3"
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <!-- Manifest -->
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+
+<!-- Optional meta for Android status bar color -->
+<meta name="theme-color" content="#2D4059" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2D4059" />
+
+  <title>Dicoding Story App</title>
+
+  <!-- Style dan Font -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet Maps JS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Lewati ke konten</a>
+
+  <!-- Header dan Navigasi -->
+  <header>
+    <h1>Dicoding Story App</h1>
+    <nav aria-label="Navigasi utama">
+      <a href="#/" class="nav-auth nav-guest">Beranda</a>
+      <a href="#/upload" class="nav-auth">Upload</a>
+      <a href="#/guest-upload" class="nav-guest">Upload Akun Guest</a>
+      <a href="#/login" class="nav-guest">Login</a>
+      <a href="#/register" class="nav-guest">Register</a>
+      <a href="#" class="nav-auth" onclick="logout()">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" tabindex="-1" role="main">
+    <div id="app"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Dicoding Story App</p>
+  </footer>
+
+  <!-- Script SPA -->
+  <script src="./src/app.js" type="module"></script>
+
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => {
+          console.log('✅ Service Worker registered:', reg.scope);
+        })
+        .catch(err => {
+          console.error('❌ Service Worker registration failed:', err);
+        });
+    }
+  </script>
+</body>
+</html>
