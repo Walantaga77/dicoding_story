@@ -70,14 +70,15 @@ async function subscribePushNotification() {
 
     try {
         // 🔧 Sesuaikan path berdasarkan lokasi file saat ini (src ➜ ../sw.js)
-        const reg = await navigator.serviceWorker.register('/sw.js');
+        const reg = await navigator.serviceWorker.register('../sw.js');
         console.log('✅ Service Worker terdaftar:', reg);
 
         const subscription = await reg.pushManager.subscribe({
             userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array(
-                'BCCs2eonMI-6H2ctvFaWg-UYdDv387Vno_bzUzALpB442r2lCnsHmtrx8biyPi_E-1fSGABK_Qs_GlvPoJJqxbk'
-            ),
+            applicationServerKey:
+                urlBase64ToUint8Array(
+                    'BCCs2eonMI-6H2ctvFaWg-UYdDv387Vno_bzUzALpB442r2lCnsHmtrx8biyPi_E-1fSGABK_Qs_GlvPoJJqxbk'
+                ),
         });
 
         const token = localStorage.getItem('token');

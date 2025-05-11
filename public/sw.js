@@ -56,7 +56,9 @@ self.addEventListener('fetch', event => {
 });
 
 // Push Notification Listener
-self.addEventListener('push', event => {
+self.addEventListener('push', async (event) => {
+    console.log("Push event masuk");
+
     if (!event.data) {
         console.warn('📭 Push event tanpa payload');
         return;
@@ -65,12 +67,14 @@ self.addEventListener('push', event => {
     let data;
     try {
         data = event.data.json();
+        console.log("Payload berupa JSON:", data);
     } catch (e) {
-        console.warn('Payload bukan JSON, fallback ke text.');
+        console.warn('⚠️ Payload bukan JSON, fallback ke text.', e);
+        const fallbackText = await event.data.text(); // <-- penting
         data = {
             title: 'Notifikasi',
             options: {
-                body: event.data.text(),
+                body: fallbackText,
                 data: { url: '/' }
             }
         };
@@ -89,6 +93,7 @@ self.addEventListener('push', event => {
         })
     );
 });
+
 
 // Klik Notifikasi → buka / fokus tab
 self.addEventListener('notificationclick', event => {

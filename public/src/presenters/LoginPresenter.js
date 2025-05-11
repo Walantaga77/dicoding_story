@@ -19,15 +19,34 @@ const LoginPresenter = {
             return;
         }
 
+        console.log('masuk dsini');
+
+
         try {
-            const reg = await navigator.serviceWorker.register('/sw.js');
+
+            console.log('before reg');
+
+            const reg = await navigator.serviceWorker.register('../../sw.js');
+
+            console.log('after reg');
+
+
 
             const subscription = await reg.pushManager.subscribe({
                 userVisibleOnly: true,
-                applicationServerKey: this.urlBase64ToUint8Array(
-                    'BCCs2eonMI-6H2ctvFaWg-UYdDv387Vno_bzUzALpB442r2lCnsHmtrx8biyPi_E-1fSGABK_Qs_GlvPoJJqxbk'
-                ),
+                applicationServerKey:
+                    this.urlBase64ToUint8Array(
+                        'BCCs2eonMI-6H2ctvFaWg-UYdDv387Vno_bzUzALpB442r2lCnsHmtrx8biyPi_E-1fSGABK_Qs_GlvPoJJqxbk'
+                    ),
             });
+
+            const cleanSub = {
+                endpoint: subscription.endpoint,
+                keys: subscription.toJSON().keys,
+            };
+
+            console.log('apakah lewat ini');
+
 
             const token = localStorage.getItem('token');
             if (!token) return;
@@ -38,10 +57,17 @@ const LoginPresenter = {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(subscription),
+                body: JSON.stringify(cleanSub),
             });
 
+            console.log('setelah res');
+
+            // console.log('setelah res2', res.json());
+
             const result = await res.json();
+
+            console.log('apakah resultnya', result);
+
             if (!res.ok) throw new Error(result.message);
             console.log('✅ Push berhasil disubscribe:', result);
             location.hash = '#/';
