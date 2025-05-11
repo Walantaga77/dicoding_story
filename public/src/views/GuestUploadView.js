@@ -3,13 +3,6 @@ import UploadPresenter from '../presenters/UploadPresenter.js';
 const GuestUploadView = {
   async render(container) {
 
-    const storyId = params.get('id');
-    const token = localStorage.getItem('token');
-
-    if (!token || !storyId) {
-      container.innerHTML = '<p style="color:red;">Data tidak lengkap. Silakan login dan pilih cerita.</p>';
-      return;
-    }
     container.innerHTML = `
       <section>
         <button id="back-button" class="back-btn">⬅️ Kembali ke Beranda</button>
