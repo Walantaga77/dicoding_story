@@ -7,7 +7,7 @@ const LoginPresenter = {
             alert('✅ Login berhasil!');
 
             await this.subscribePushNotification(); // ✅ Push notification
-            location.hash = '#/';
+            // location.hash = '#/';
         } catch (err) {
             alert(`❌ Login gagal: ${err.message}`);
         }
@@ -44,8 +44,10 @@ const LoginPresenter = {
             const result = await res.json();
             if (!res.ok) throw new Error(result.message);
             console.log('✅ Push berhasil disubscribe:', result);
+            location.hash = '#/';
         } catch (error) {
             console.error('❌ Gagal subscribe push notification:', error.message);
+            location.hash = '#/';
         }
     },
 
