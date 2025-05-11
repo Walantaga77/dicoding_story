@@ -2,7 +2,7 @@
 const CACHE_NAME = 'dicoding-story-cache-v1';
 const STATIC_ASSETS = [
     '/',
-    '/index.html',
+    '../index.html',
     '/style.css',
     '/src/app.js',
     '/manifest.webmanifest',
