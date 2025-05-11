@@ -43,7 +43,7 @@ const DetailView = {
 
 
             document.getElementById('back-to-stories').addEventListener('click', () => {
-                location.hash = '#/stories';
+                location.hash = '#/';
             });
 
             // 🌍 Inisialisasi peta dengan beberapa tile layer
