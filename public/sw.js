@@ -4,7 +4,7 @@ const STATIC_ASSETS = [
     '/',
     '../index.html',
     '/style.css',
-    '/src/app.js',
+    './src/app.js',
     '/manifest.webmanifest',
     './icons/icon-192x192.jpg',
     'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
